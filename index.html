@@ -94,7 +94,14 @@
  html .label-sheet,html[data-print-rotation] .label-sheet{transform:translateY(var(--print-offset-y,0mm)) rotate(var(--print-angle,0deg))!important;transform-origin:center center!important}
  .label-content{display:flex;flex-direction:column;justify-content:flex-start;width:100%;height:100%;min-height:0;transform:scale(var(--print-scale,.9));transform-origin:center center}
 }
-</style></head><body><div class="app"><header><div><h1>▣ Naklejki rozdzielnic</h1><small>Wersja webowa v1.1 — przygotowanie wydruku PL / EN</small></div><div class="header-actions"><button id="themeBtn" type="button" aria-label="Zmień motyw">🌙 Ciemny</button><button id="settingsBtn">⚙ Ustawienia</button></div></header><main id="root"></main><footer>Wydruk testowy przez przeglądarkę. Zebra GX430t — sprawdź pierwszą etykietę.</footer></div><script>
+/* v1.2: keep label details directly below the title */
+.label-main{flex:0 0 auto;margin-top:4px}
+.label-bottom{margin-top:4px}
+@media print{
+ .label-main{flex:0 0 auto!important;margin-top:1mm!important}
+ .label-bottom{margin-top:1mm!important}
+}
+</style></head><body><div class="app"><header><div><h1>▣ Naklejki rozdzielnic</h1><small>Wersja webowa v1.2 — przygotowanie wydruku PL / EN</small></div><div class="header-actions"><button id="themeBtn" type="button" aria-label="Zmień motyw">🌙 Ciemny</button><button id="settingsBtn">⚙ Ustawienia</button></div></header><main id="root"></main><footer>Wydruk testowy przez przeglądarkę. Zebra GX430t — sprawdź pierwszą etykietę.</footer></div><script>
 const printNumber=(key,fallback,min,max)=>{const n=Number(localStorage.getItem(key)??fallback);return Number.isFinite(n)?Math.max(min,Math.min(max,n)):fallback};
 const state={printOffsetY:printNumber('naklejki-print-offset-y',0,-10,10),printScale:printNumber('naklejki-print-scale',90,70,100),printRotation:localStorage.getItem('naklejki-print-rotation')||'none',page:'home',mode:'single',single:'',voltage:'',raw:'',step:'paste',selected:new Set(),year:localStorage.getItem('naklejki-year')||'2026',language:localStorage.getItem('naklejki-lang')||'PL',theme:localStorage.getItem('naklejki-theme')||'light'};const root=document.getElementById('root');const escapeHTML=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 function parse(){let lines=state.raw.split(/\r?\n|\t/).map(x=>x.trim()).filter(Boolean), found=[], ignored=[];for(let line of lines){let matches=[...line.matchAll(/(?:^|[^\p{L}\p{N}])K(\d+)\b/giu)].map(m=>m[1]);if(matches.length)found.push(...matches);else if(!/^(?:PP\d+|PK|HE|CHF|L|L\/K|\+|\/|\s|\-)+$/i.test(line))ignored.push(line)}let unique=[...new Set(found)];return {unique,ignored,duplicates:[...new Set(found.filter((x,i)=>found.indexOf(x)!==i))]}}
