@@ -107,7 +107,8 @@
 @font-face{font-family:Carlito;src:url("assets/fonts/Carlito-Bold.ttf") format("truetype");font-weight:700}
 /* Excel cell proportions; hidden rows take no space. v1.6 physical size and vertical correction calibrated from the supplied side-by-side print photo. */
 @media print {
-.label-sheet{position:relative!important;padding:0!important;font-family:Calibri,Carlito,Arial,sans-serif!important}
+/* Isolate absolute-positioned descendants so print fragmentation cannot move rows or footers to another label. */
+.label-sheet{display:block!important;contain:strict;position:relative!important;padding:0!important;font-family:Calibri,Carlito,Arial,sans-serif!important}
 .label-content{position:absolute;left:50%;top:calc(50% + var(--print-content-offset-y,4mm));display:block!important;transform:translate(-50%,-50%) scale(var(--print-scale,1))!important;transform-origin:center center}
 .label-head,.label-main,.label-data,.label-bottom{display:contents!important}
 .label-contact{position:absolute;inset:0;font-weight:700!important;font-size:inherit!important;line-height:normal!important}
@@ -163,7 +164,7 @@
 .label-sheet[data-language="EN"] .qr-column{left:1.13392mm!important;top:27.40705mm!important;width:19.79839mm!important;height:19.02733mm!important;}
 }
 .label-bottom span:last-child{font-weight:400!important}
-</style></head><body><div class="app"><header><div><h1>▣ Naklejki rozdzielnic</h1><small>Wersja webowa v1.7 — przygotowanie wydruku PL / EN</small></div><div class="header-actions"><button id="themeBtn" type="button" aria-label="Zmień motyw">🌙 Ciemny</button><button id="settingsBtn">⚙ Ustawienia</button></div></header><main id="root"></main><footer>Wydruk testowy przez przeglądarkę. Zebra GX430t — sprawdź pierwszą etykietę.</footer></div><script>
+</style></head><body><div class="app"><header><div><h1>▣ Naklejki rozdzielnic</h1><small>Wersja webowa v1.8 — przygotowanie wydruku PL / EN</small></div><div class="header-actions"><button id="themeBtn" type="button" aria-label="Zmień motyw">🌙 Ciemny</button><button id="settingsBtn">⚙ Ustawienia</button></div></header><main id="root"></main><footer>Wydruk testowy przez przeglądarkę. Zebra GX430t — sprawdź pierwszą etykietę.</footer></div><script>
 const printNumber=(key,fallback,min,max)=>{const n=Number(localStorage.getItem(key)??fallback);return Number.isFinite(n)?Math.max(min,Math.min(max,n)):fallback};
 const state={printOffsetY:printNumber('naklejki-print-offset-y-centered',0,-10,10),printScale:printNumber('naklejki-print-scale',100,70,120),printRotation:localStorage.getItem('naklejki-print-rotation')||'none',page:'home',mode:'single',single:'',voltage:'',raw:'',step:'paste',selected:new Set(),year:localStorage.getItem('naklejki-year')||'2026',language:localStorage.getItem('naklejki-lang')||'PL',theme:localStorage.getItem('naklejki-theme')||'light'};const root=document.getElementById('root');const escapeHTML=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 function parse(){let lines=state.raw.split(/\r?\n|\t/).map(x=>x.trim()).filter(Boolean), found=[], ignored=[];for(let line of lines){let matches=[...line.matchAll(/(?:^|[^\p{L}\p{N}])K(\d+)\b/giu)].map(m=>m[1]);if(matches.length)found.push(...matches);else if(!/^(?:PP\d+|PK|HE|CHF|L|L\/K|\+|\/|\s|\-)+$/i.test(line))ignored.push(line)}let unique=[...new Set(found)];return {unique,ignored,duplicates:[...new Set(found.filter((x,i)=>found.indexOf(x)!==i))]}}
