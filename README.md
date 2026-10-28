@@ -4,7 +4,7 @@ Program do tworzenia etykiet (naklejek) do rozdzielnic typu Opal Compact.
 
 ## Funkcje
 
-- Etykiety pojedyncze i partie numerów wklejanych z Excela; PL/ENG.
+- Etykiety pojedyncze i partie numerów wklejanych z Excela; PL/ENG. W opcji „Pojedyncze” można wkleić cały opis, np. `K4768 PP2 PR+HE` — zostanie rozpoznany numer K4768. Kilka różnych numerów wymaga opcji „Wiele”.
 - Automatyczne zachowywanie rozpoczętej pracy po odświeżeniu lub zamknięciu strony.
 - Historia ostatnich 20 partii z możliwością ponownego przygotowania oraz usunięcia wpisu.
 - Zaznaczanie i odznaczanie wszystkich numerów 230 VAC; pozostałe mają 3X400 VAC.
