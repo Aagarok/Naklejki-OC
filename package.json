@@ -1,0 +1,34 @@
+{
+  "name": "naklejki-oc",
+  "version": "2.0.0",
+  "private": true,
+  "description": "Generator etykiet do rozdzielnic Opal Compact",
+  "author": "Aagarok",
+  "main": "desktop/main.cjs",
+  "scripts": {
+    "start": "electron .",
+    "dist:win": "electron-builder --win portable --x64 --publish never"
+  },
+  "devDependencies": {
+    "electron": "45.2.1",
+    "electron-builder": "26.18.0"
+  },
+  "build": {
+    "appId": "pl.aagarok.naklejkioc",
+    "productName": "Naklejki OC",
+    "directories": { "output": "dist" },
+    "files": [
+      "desktop/*.cjs",
+      "index.html",
+      "app.js",
+      "assets/**/*",
+      "package.json"
+    ],
+    "win": {
+      "target": [{ "target": "portable", "arch": ["x64"] }],
+      "artifactName": "Naklejki-OC-${version}-Windows-x64.${ext}",
+      "signAndEditExecutable": false
+    },
+    "portable": { "requestExecutionLevel": "user" }
+  }
+}
