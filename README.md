@@ -8,8 +8,8 @@ Aplikacja online: [aagarok.github.io/Naklejki-OC](https://aagarok.github.io/Nakl
 
 ### Przygotowanie etykiet
 
-- **Pojedynczo** — wpisanie numeru, np. `4768`, `K4768` lub `RK4768`, albo wklejenie całego opisu, np. `K4768 PP2 PR+HE`. Aplikacja rozpoznaje numer i pokazuje go przed przejściem do podglądu. Kilka różnych numerów wymaga opcji „Wiele”.
-- **Wiele** — wklejanie danych z Excela lub Numbers, także z wielu wierszy i kolumn. Aplikacja wyodrębnia numery K z opisów, usuwa duplikaty i pokazuje rozpoznane numery, powtórzenia oraz pominięte fragmenty. Liczba pominiętych fragmentów jest orientacyjna i nie oznacza liczby urządzeń. Przycisk „Wyczyść” usuwa wklejoną listę i wybór napięć.
+- **Pojedynczo** — wpisanie numeru, np. `4768`, `K4768` lub `RK4768`, albo wklejenie całego opisu, np. `K4768 PP2 PR+HE`. Aplikacja rozpoznaje numer i pokazuje go przed przejściem do podglądu. Kilka różnych numerów wymaga opcji „Wielokrotnie”.
+- **Wielokrotnie** — wklejanie danych z Excela lub Numbers, także z wielu wierszy i kolumn. Aplikacja wyodrębnia numery K z opisów, usuwa duplikaty i pokazuje rozpoznane numery, powtórzenia oraz pominięte fragmenty. Liczba pominiętych fragmentów jest orientacyjna i nie oznacza liczby urządzeń. Przycisk „Wyczyść” usuwa wklejoną listę i wybór napięć.
 - Wybór **230 VAC** lub **3X400 VAC** dla pojedynczej etykiety; przyciski mają ikony SVG wtyczki i błyskawicy.
 - W partii wskazanie poszczególnych numerów 230 VAC albo zaznaczenie/odznaczenie wszystkich. Pozostałe numery otrzymują 3X400 VAC.
 - Sortowanie numerów rosnąco lub zachowanie kolejności z wklejonych danych.
