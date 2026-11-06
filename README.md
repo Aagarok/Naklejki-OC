@@ -1,6 +1,6 @@
 # Naklejki-OC
 
-Generator etykiet do rozdzielnic typu Opal Compact — wersja **v2.4**.
+Generator etykiet do rozdzielnic typu Opal Compact — wersja **v2.5**.
 
 Aplikacja online: [aagarok.github.io/Naklejki-OC](https://aagarok.github.io/Naklejki-OC/).
 
@@ -25,7 +25,7 @@ Aplikacja online: [aagarok.github.io/Naklejki-OC](https://aagarok.github.io/Nakl
 ### Wygląd i zapisywanie pracy
 
 - Motyw **jasny i ciemny** przełączany suwakiem oraz układ dostosowany do komputerów i telefonów.
-- Logo Clima Gold w nagłówku, pobierane bezpośrednio z [oficjalnego pliku SVG na climagold.com](https://climagold.com/wp-content/uploads/2024/04/Logo_gray.svg). Załadowanie logo wymaga dostępu do tej strony. Logo w nagłówku nie jest drukowane na etykietach.
+- Logo Clima Gold w nagłówku, pobierane bezpośrednio z [oficjalnego pliku SVG na climagold.com](https://climagold.com/wp-content/uploads/2024/04/Logo_gray.svg). Załadowanie logo wymaga dostępu do tej strony. Logo jest wyświetlane bez kafelka; w ciemnym motywie jest rozjaśniane dla lepszego kontrastu. Logo w nagłówku nie jest drukowane na etykietach.
 - Automatyczne zachowywanie rozpoczętej pracy po odświeżeniu lub zamknięciu strony: numerów, wybranych napięć, kolejności i etapu przygotowania, także podglądu.
 - Zapamiętywanie motywu, języka etykiet, roku i ustawień wydruku.
 - Historia ostatnich **20 partii** z datą, liczbą etykiet, językiem, rokiem i skróconą listą numerów. Można ponownie przygotować partię z jej ustawieniami albo usunąć wpis.
