@@ -1,16 +1,8 @@
 # Naklejki-OC
 
-Generator etykiet do rozdzielnic typu Opal Compact — wersja **v2.1**.
+Generator etykiet do rozdzielnic typu Opal Compact — wersja **v2.2**.
 
 Aplikacja online: [aagarok.github.io/Naklejki-OC](https://aagarok.github.io/Naklejki-OC/).
-
-## Windows — wersja przenośna
-
-`Naklejki-OC-2.1.0-Windows-x64.exe` to samodzielna aplikacja dla Windows 10/11 w wersji 64-bitowej. Nie wymaga instalatora, Node.js ani dostępu do internetu. Skopiuj plik na komputer i uruchom go dwukrotnym kliknięciem. Po otwarciu aplikacji można przygotowywać i drukować etykiety tak jak na stronie WWW; przycisk „Drukuj naklejki” otwiera systemowe okno drukowania z papierem 96,2 × 70,8 mm. Sterownik drukarki musi być dostępny na komputerze.
-
-Historia i ustawienia są przechowywane w profilu użytkownika Windows (`%APPDATA%/Naklejki OC`), osobno od przeglądarki i osobno na każdym komputerze. Samo przeniesienie pliku `.exe` nie przenosi zapisanej pracy. Program nie wymaga podwyższonych uprawnień, ale firmowe zasady mogą blokować pobrane aplikacje. Plik nie ma podpisu cyfrowego wydawcy; w razie blokady skontaktuj się z firmowym IT.
-
-Kolejne pliki `.exe` buduje zadanie [Windows portable w GitHub Actions](https://github.com/Aagarok/Naklejki-OC/actions/workflows/windows.yml). Po pomyślnym zakończeniu zadania pobierz archiwum `Naklejki-OC-Windows-x64` z sekcji **Artifacts**, rozpakuj je i uruchom znajdujący się w nim plik `.exe`. Pobieranie artefaktów może wymagać zalogowania do GitHub. Artefakty są przechowywane przez 30 dni; zadanie można uruchomić ponownie przyciskiem **Run workflow**.
 
 ## Funkcje
 
@@ -63,20 +55,3 @@ python3 -m http.server 8000 --bind 127.0.0.1
 Następnie otwórz `http://127.0.0.1:8000` w przeglądarce.
 
 Aplikacja nie wymaga instalowania pakietów, budowania ani backendu. Kod znajduje się w `app.js`, a układ etykiet i wygląd strony w `index.html`. Czcionki Carlito są dołączone w `assets/fonts/` wraz z licencją.
-
-### Rozwijanie aplikacji Windows
-
-Wariant desktopowy używa Electron i tych samych plików HTML/JavaScript co strona. Do pracy nad nim potrzebny jest Node.js 24 oraz npm. W katalogu repozytorium:
-
-```sh
-npm ci
-npm start
-```
-
-Aby zbudować przenośny plik Windows x64:
-
-```sh
-npm run dist:win
-```
-
-Gotowy plik pojawi się w `dist/`. Zależności i pliki wynikowe nie są zapisywane w Git. Kod okna aplikacji i obsługi systemowego drukowania znajduje się w `desktop/`. Wariant WWW nadal działa bez instalowania pakietów.
